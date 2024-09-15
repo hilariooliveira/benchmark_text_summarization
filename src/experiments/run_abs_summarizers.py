@@ -10,8 +10,6 @@ from src.summarizers import abstractive_summarizers as abs_summ
 
 if __name__ == '__main__':
 
-    corpus_name = 'cnn_full'
-
     n_docs = -1
 
     min_len = 40
@@ -19,27 +17,18 @@ if __name__ == '__main__':
 
     num_beams = 5
 
-    # summarization_name = 'pegasus'
+    summarization_name = 'pegasus'
     # summarization_name = 'brio'
     # summarization_name = 'flan_t5_large'
-    summarization_name = 'bart_large-cnn'
+    # summarization_name = 'bart_large-cnn'
 
-    corpus_path = f'/mnt/Novo Volume/Hilario/Pesquisa/Recursos/Sumarização/Corpora/{corpus_name}'
+    corpus_path = f'../../data/corpus_cnn'
 
-    summaries_dir = f'/mnt/Novo Volume/Hilario/Pesquisa/Experimentos/teste/summaries/{corpus_name}'
-
-    print(f'\nCorpus: {corpus_name}')
+    summaries_dir = f'../../data/summaries/abs'
 
     print('\n  Reading corpus ...')
 
-    if corpus_name == 'cnn_full' or corpus_name == 'cnn_teste':
-        corpus = corpora.build_cnn_corpus(corpus_path)
-    elif corpus_name == 'stanford_corpus':
-        corpus_path = f'{corpus_path}/writer_summaries.json'
-        corpus = corpora.read_stanford_corpus(corpus_path)
-    else:
-        print(f'\n\nCorpus Option {corpus_name} Invalid!')
-        exit(-1)
+    corpus = corpora.build_cnn_corpus(corpus_path)
 
     tokenizer = None
 

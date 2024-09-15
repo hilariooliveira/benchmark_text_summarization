@@ -10,31 +10,15 @@ from tqdm import tqdm
 
 if __name__ == '__main__':
 
-    # corpus_name = 'cnn_full'
-    # corpus_name = 'cnn_teste'
-    corpus_name = 'stanford_corpus'
-
     n_docs = -1
 
-    corpus_path = f'/media/hilario/Novo volume/Hilario/Pesquisa/Recursos/Sumarização/' \
-                  f'Corpora/{corpus_name}'
+    corpus_path = f'../../data/corpus_cnn'
 
-    summaries_dir = f'/media/hilario/Novo volume/Hilario/Pesquisa/Experimentos/' \
-                    f'benchmark_abs_summarization/summaries/{corpus_name}'
+    summaries_dir = f'../../data/summaries/ext'
 
     os.makedirs(summaries_dir, exist_ok=True)
 
-    if corpus_name == 'cnn_full' or corpus_name == 'cnn_teste':
-        corpus = corpora.build_cnn_corpus(corpus_path)
-    elif corpus_name == 'cnn_dailymail':
-        corpus_sets = corpora.read_cnn_dailymail(corpus_path)
-        corpus = corpus_sets['test']
-    elif corpus_name == 'stanford_corpus':
-        corpus_path = f'{corpus_path}/writer_summaries.json'
-        corpus = corpora.read_stanford_corpus(corpus_path)
-    else:
-        print(f'\n\nCorpus Option {corpus_name} Invalid!')
-        exit(-1)
+    corpus = corpora.build_cnn_corpus(corpus_path)
 
     if n_docs != -1:
         documents = corpus.documents[0: n_docs]

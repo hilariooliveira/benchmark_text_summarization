@@ -10,13 +10,9 @@ from tqdm import tqdm
 
 if __name__ == '__main__':
 
-    corpus_name = 'cnn_full'
+    corpus_path = f'../../data/corpus_cnn'
 
-    corpus_path = f'/mnt/Novo Volume/Hilario/Pesquisa/Recursos/Sumarização/Corpora/{corpus_name}'
-
-    summaries_dir = f'/mnt/Novo Volume/Hilario/Pesquisa/Experimentos/teste/summaries/{corpus_name}'
-
-    print(f'\nCorpus: {corpus_name}')
+    summaries_dir = f'../../data/summaries/abs'
 
     print('\n  Reading corpus ...')
 

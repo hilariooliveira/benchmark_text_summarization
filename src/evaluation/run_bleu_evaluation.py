@@ -29,28 +29,17 @@ def evaluate_summaries_bleu(document_):
 
 if __name__ == '__main__':
 
-    corpus_name = 'cnn_full'
-
     metric_name = 'bleu'
 
-    corpus_path = f'/mnt/Novo Volume/Hilario/Pesquisa/Recursos/Sumarização/Corpora/{corpus_name}'
+    corpus_path = f'../../data/corpus_cnn'
 
-    summaries_dir = f'/mnt/Novo Volume/Hilario/Pesquisa/Experimentos/teste/summaries/{corpus_name}'
-
-    print(f'\nCorpus: {corpus_name}')
+    summaries_dir = f'../../data/summaries/abs'
 
     print('\n  Reading corpus ...')
 
-    if corpus_name == 'cnn_full':
-        corpus = corpora.build_cnn_corpus(corpus_path)
-    else:
-        print(f'\n\nCorpus Option {corpus_name} Invalid!')
-        exit(-1)
+    corpus = corpora.build_cnn_corpus(corpus_path)
 
     is_use_highlights = False
-
-    if corpus_name == 'stanford_corpus':
-        is_use_highlights = None
 
     prefix_file = ''
 
